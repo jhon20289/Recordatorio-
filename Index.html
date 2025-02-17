@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Recordatorios con Modal y WhatsApp</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>Agregar Recordatorio</h2>
+    <form id="reminderForm">
+      <input type="text" id="message" placeholder="Escribe tu recordatorio..." required>
+      <input type="datetime-local" id="time" required>
+      <button type="submit">Agregar Recordatorio</button>
+    </form>
+  </div>
+
+  <div class="container">
+    <h2>Lista de Recordatorios</h2>
+    <div id="reminders"></div>
+  </div>
+
+  <!-- Modal de notificación -->
+  <div id="notificationModal" class="modal">
+    <div class="modal-content">
+      <h3>⏰ Recordatorio</h3>
+      <p id="modalMessage"></p>
+      <button id="whatsappBtn" class="whatsapp-btn">Abrir WhatsApp</button>
+      <button id="postponeBtn" class="postpone-btn">Posponer 5 min</button>
+      <button id="closeModalBtn" class="close-btn">Cerrar</button>
+    </div>
+  </div>
+
+  <audio id="alarmSound" src="https://www.soundjay.com/phone/old-phone-ringing-1.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
