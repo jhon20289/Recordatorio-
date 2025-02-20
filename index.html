@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Recordatorios con Modal y WhatsApp</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
   <div class="container">
     <h2>Agregar Recordatorio</h2>
     <form id="reminderForm">
@@ -14,15 +12,10 @@
       <input type="datetime-local" id="time" required>
       <button type="submit">Agregar Recordatorio</button>
     </form>
-  </div>
-
-  <div class="container">
+  </div>  <div class="container">
     <h2>Lista de Recordatorios</h2>
     <div id="reminders"></div>
-  </div>
-
-  <!-- Modal de notificación -->
-  <div id="notificationModal" class="modal">
+  </div>  <!-- Modal de notificación -->  <div id="notificationModal" class="modal">
     <div class="modal-content">
       <h3>⏰ Recordatorio</h3>
       <p id="modalMessage"></p>
@@ -30,25 +23,15 @@
       <button id="postponeBtn" class="postpone-btn">Posponer 5 min</button>
       <button id="closeModalBtn" class="close-btn">Cerrar</button>
     </div>
-  </div>
+  </div><audio id="alarmSound" src="https://www.soundjay.com/phone/old-phone-ringing-1.mp3" preload="auto"></audio>
 
-  <audio id="alarmSound" src="https://www.soundjay.com/phone/old-phone-ringing-1.mp3" preload="auto"></audio>
-
-  <!-- Tu script principal -->
-  <script src="script.js"></script>
-  
-  <!-- Cargar el SDK de OneSignal -->
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-
-  <!-- Inicializar OneSignal -->
-  <script>
+  <!-- Tu script principal -->  <script src="script.js"></script>  <!-- Cargar el SDK de OneSignal -->  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>  <!-- Inicializar OneSignal -->  <script>
     var OneSignal = window.OneSignal || [];
     OneSignal.push(function() {
       OneSignal.init({
-        appId: "appId: "750a29db-4a10-4c1d-9942-aac44767f5af",",  // Pega aquí tu App ID real
+        appId: "750a29db-4a10-4c1d-9942-aac44767f5af", // App ID de OneSignal
         serviceWorkerPath: "OneSignalSDKWorker.js"
       });
     });
-  </script>
-</body>
+  </script></body>
 </html>
