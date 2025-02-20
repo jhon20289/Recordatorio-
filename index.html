@@ -1,6 +1,7 @@
-<!DOCTYPE html><html lang="es">
+<!-- Prueba de despliegue en GitHub Pages --><!DOCTYPE html><html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recordatorios con Modal y WhatsApp</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -25,11 +26,11 @@
     </div>
   </div><audio id="alarmSound" src="https://www.soundjay.com/phone/old-phone-ringing-1.mp3" preload="auto"></audio>
 
-  <!-- Tu script principal -->  <script src="script.js"></script>  <!-- Cargar el SDK de OneSignal -->  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>  <!-- Inicializar OneSignal -->  <script>
+  <!-- Tu script principal -->  <script src="script.js"></script>  <!-- Cargar el SDK de OneSignal -->  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>  <!-- Inicializar OneSignal -->  <script>
     var OneSignal = window.OneSignal || [];
     OneSignal.push(function() {
       OneSignal.init({
-        appId: "750a29db-4a10-4c1d-9942-aac44767f5af", // App ID de OneSignal
+        appId: "750a29db-4a10-4c1d-9942-aac44767f5af",
         serviceWorkerPath: "OneSignalSDKWorker.js"
       });
     });
