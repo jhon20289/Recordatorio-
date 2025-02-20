@@ -1,10 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const reminderForm = document.getElementById("reminderForm");
     const remindersContainer = document.getElementById("reminders");
 
-    reminderForm.addEventListener("submit", function(event) {
+    reminderForm.addEventListener("submit", function (event) {
         event.preventDefault();
-        const message = document.getElementById("message").value;
+        const message = document.getElementById("message").value.trim();
         const time = document.getElementById("time").value;
 
         if (!message || !time) {
@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", function() {
             remindersContainer.appendChild(reminderElement);
         });
 
-        document.querySelectorAll(".delete-btn").forEach(button => {
-            button.addEventListener("click", function() {
+        document.querySelectorAll(".delete-btn").forEach((button) => {
+            button.addEventListener("click", function () {
                 deleteReminder(this.dataset.index);
             });
         });
@@ -72,7 +72,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function showNotification(message) {
-        alert("Recordatorio: " + message);
+        alert("🔔 Recordatorio: " + message);
+        // Enviar notificación por OneSignal
+        if (window.OneSignal) {
+            OneSignal.sendSelfNotification(
+                "Recordatorio",
+                message,
+                null,
+                null,
+                { action: "open" }
+            );
+        }
     }
 
     renderReminders();
