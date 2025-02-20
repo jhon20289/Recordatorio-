@@ -36,4 +36,17 @@
 
   <script src="script.js"></script>
 </body>
+  <!-- Cargar el SDK de OneSignal -->
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+
+<!-- Inicializar OneSignal -->
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "TU-APP-ID-DE-ONESIGNAL",  // Pega aquí tu App ID real
+      serviceWorkerPath: "OneSignalSDKWorker.js"
+    });
+  });
+</script>
 </html>
