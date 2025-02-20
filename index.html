@@ -34,19 +34,21 @@
 
   <audio id="alarmSound" src="https://www.soundjay.com/phone/old-phone-ringing-1.mp3" preload="auto"></audio>
 
+  <!-- Tu script principal -->
   <script src="script.js"></script>
-</body>
+  
   <!-- Cargar el SDK de OneSignal -->
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 
-<!-- Inicializar OneSignal -->
-<script>
-  var OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "TU-APP-ID-DE-ONESIGNAL",  // Pega aquí tu App ID real
-      serviceWorkerPath: "OneSignalSDKWorker.js"
+  <!-- Inicializar OneSignal -->
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "TU-APP-ID-DE-ONESIGNAL",  // Pega aquí tu App ID real
+        serviceWorkerPath: "OneSignalSDKWorker.js"
+      });
     });
-  });
-</script>
+  </script>
+</body>
 </html>
