@@ -1,0 +1,11 @@
+const options = {
+  body: message,
+  icon: icon,
+  badge: "/icon-192x192.png",
+  vibrate: [200, 100, 200], // Patrón de vibración
+  sound: "/beep.mp3", // Usa el nombre del archivo que subiste
+  actions: [
+    { action: "open", title: "Abrir" },
+    { action: "close", title: "Cerrar" }
+  ]
+};
