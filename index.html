@@ -1,65 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recordatorio con Modal y WhatsApp</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recordatorio con Modal y WhatsApp</title>
+  <link rel="stylesheet" href="styles.css">
 
-    <!-- Referencia a manifest.json para PWA -->
-    <link rel="manifest" href="manifest.json">
+  <!-- Referencia a manifest.json para PWA -->
+  <link rel="manifest" href="manifest.json">
 
-    <!-- Ícono de la aplicación -->
-    <link rel="icon" href="icon-192x192.png" type="image/png">
+  <!-- Ícono de la aplicación -->
+  <link rel="icon" href="icon-192x192.png" type="image/png">
 </head>
 <body>
 
-    <div class="container">
-        <h2>Agregar Recordatorio</h2>
-        <form id="reminderForm">
-            <input type="text" id="message" placeholder="Escribe tu recordatorio..." required>
-            <input type="datetime-local" id="time" required>
-            <button type="submit">Agregar Recordatorio</button>
-        </form>
+  <div class="container">
+    <h2>Agregar Recordatorio</h2>
+    <form id="reminderForm">
+      <input type="text" id="message" placeholder="Escribe tu recordatorio..." required>
+      <input type="datetime-local" id="time" required>
+      <button type="submit">Agregar Recordatorio</button>
+    </form>
+  </div>
+
+  <div class="container">
+    <h2>Lista de Recordatorios</h2>
+    <div id="reminders"></div>
+  </div>
+
+  <!-- Modal de notificación -->
+  <div id="notificationModal" class="modal">
+    <div class="modal-content">
+      <h3>⏰ Recordatorio</h3>
+      <p id="modalMessage"></p>
+      <button id="whatsappBtn" class="whatsapp-btn">Abrir WhatsApp</button>
+      <button id="postponeBtn" class="postpone-btn">Posponer 5 min</button>
+      <button id="closeModalBtn" class="close-btn">Cerrar</button>
     </div>
+  </div>
 
-    <div class="container">
-        <h2>Lista de Recordatorios</h2>
-        <div id="reminders"></div>
-    </div>
+  <audio id="alarmSound" src="https://www.soundjay.com/phone/old-phone-ringing-1.mp3" preload="auto"></audio>
 
-    <!-- Modal de notificación -->
-    <div id="notificationModal" class="modal">
-        <div class="modal-content">
-            <h3>⏰ Recordatorio</h3>
-            <p id="modalMessage"></p>
-            <button id="whatsappBtn" class="whatsapp-btn">Abrir WhatsApp</button>
-            <button id="postponeBtn" class="postpone-btn">Posponer 5 min</button>
-            <button id="closeModalBtn" class="close-btn">Cerrar</button>
-        </div>
-    </div>
+  <!-- Tu script principal -->
+  <script src="script.js"></script>
 
-    <audio id="alarmSound" src="https://www.soundjay.com/phone/old-phone-ringing-1.mp3" preload="auto"></audio>
+  <!-- Cargar el SDK de OneSignal -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"></script>
 
-    <!-- Tu script principal -->
-    <script src="script.js"></script>
-
-    <!-- Cargar el SDK de OneSignal -->
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"></script>
-
-    <!-- Inicializar OneSignal -->
-    <script>
-        window.OneSignalDeferred = window.OneSignalDeferred || [];
-        OneSignalDeferred.push(async function(OneSignal) {
-            await OneSignal.init({
-                appId: "750a29db-4a10-4c1d-9942-aac44767f5af",
-                safari_web_id: "web.onesignal.auto.12e0c5f3-6b76-47bb-8015-fa3026009bd5",
-                notifyButton: {
-                    enable: true,
-                },
-            });
-        });
-    </script>
+  <!-- Inicializar OneSignal -->
+  <script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "750a29db-4a10-4c1d-9942-aac44767f5af", // Reemplaza este App ID por el que te proporcione OneSignal si fuera necesario
+        safari_web_id: "web.onesignal.auto.12e0c5f3-6b76-47bb-8015-fa3026009bd5",
+        notifyButton: {
+          enable: true,
+        },
+      });
+    });
+  </script>
 
 </body>
 </html>
